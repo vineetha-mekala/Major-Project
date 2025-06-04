@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodie's Delight: Cuisine Options</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="static/css/colors/orange.css" />
+
+    <!-- Modernizer -->
+    <script src="static/js/modernizer.js"></script>
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <style>
+        .partner-executives {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+        .partner {
+            display: inline;
+    width: 45%;
+    max-width: 250px;
+    height: 150px;
+    background-color: #e75b1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.partner-count {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.partner p {
+    text-align: center;
+    color: white;
+}
+      body {
+        background-color: #f5f5f5;
+       
+      }
+      .cuisine-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cuisine-card:hover {
+  transform: translateY(-2px);
+}
+
+.cuisine-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.cuisine-name {
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+    </style>
+  </head>
+   
+  
+
+  <body>
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                        <img src="static/images/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="#banner">Home</a></li>
+                                    <li><a href="#about">About us</a></li>
+                                    <li><a href="#menu">Restaurants</a></li>
+                                    <!-- <li><a href="#our_team">Team</a></li> -->
+                                    <!-- <li><a href="#gallery">Gallery</a></li> -->
+                                    <!-- <li><a href="#blog">Blog</a></li> -->
+                                    <!-- <li><a href="#pricing">pricing</a></li> -->
+                                    <li><a href="#reservation">Delivery</a></li>
+                                    <li><a href="#footer">Contact us</a></li>
+                                    <li><a href="{{ url_for('userdetails') }}" 
+                                      >User Profile</a
+                                    ></li>
+                                    <li><a href="{{ url_for('home1') }}" 
+                                        >Nutrient</a
+                                      ></li>
+                                    <li><a href="{{ url_for('home')}}" >Sign Out</a></li>
+                                  </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+	<!-- end site-header -->
+	
+    <div id="banner" class="banner full-screen-mode parallax">
+        <div class="container pr">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="banner-static">
+                    <div class="banner-text">
+                        <div class="banner-cell">
+                            <h1>Dinner with us  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                            <h2>Delicious Meals, Delivered Fast </h2>
+                            <p class="block-title">Craving your favorite food? We've got you covered!
+                                Browse restaurants near you, order in just a few taps, and enjoy hot, fresh meals delivered straight to your door.
+                                <br>
+                                🍔 Fresh Ingredients      
+                                🚀 Lightning-Fast Delivery 
+                                💳 Easy and Secure Payments
+                                <br>
+                                Order now and satisfy your cravings!</p>
+                            <div class="book-btn">
+                                <a href="#menu" class="table-btn hvr-underline-from-center">Book my Order</a>
+                            </div>
+                            <a href="#about">
+                                <div class="mouse"></div>
+                            </a>
+                        </div>
+                        <!-- end banner-cell -->
+                    </div>
+                    <!-- end banner-text -->
+                </div>
+                <!-- end banner-static -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end banner -->
+
+    <div id="about" class="about-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title"> About Us </h2>
+                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
+                        <h3>Welcome to Food Funday! 🎉🍴</h3>
+                        <p style="color: black; font-weight:bolder;"> 
+
+                            At Food Funday, we believe every meal should be a celebration.
+                            Whether you’re craving a cheesy pizza, spicy biryani, or a sweet dessert, we bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.
+                            
+                            With our user-friendly interface, ordering from your go-to restaurants has never been smoother. Whether it's a quick bite from your local diner or a special treat from a renowned chain, we've got you covered. Our diverse selection of eateries ensures there's something to please every palate. And with our efficient delivery service, you can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                           
+                            
+                             </p>
+
+                        <p style="color: black; font-weight:bolder;">  
+                             And with our efficient delivery service, We’re passionate about making your food ordering experience simple, fun, and reliable. You can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                            With just a few clicks, you can explore new tastes, support local kitchens, and enjoy delicious moments every day. </p>
+
+                        <p style="color: black; font-weight:bolder;">Because every day is a Funday when great food is just a tap away! </p>
+
+                        
+                    </div>
+                    
+                </div>
+                <!-- end col -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="about-images">
+                            <img class="about-main" src="static/images/about-main.jpg" alt="About Main Image">
+                            <img class="about-inset" src="static/images/about-inset.jpg" alt="About Inset Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <div class="partner-executives">
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Restaurant Partners</p>
+                </div>
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Happy Customers</p>
+                </div>
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Delivery Executives</p>
+                </div>
+              </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <div id="special" class="special-menu pad-top-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title color-white text-center"> Today's Special </h2>
+                        <h5 class="title-caption text-center">Get ready to treat your taste buds!
+
+                            Crafted to bring a burst of flavor and happiness to your day.
+                            From sizzling starters to mouth-watering mains and delightful desserts, we’ve picked the best just for you! </h5>
+                    </div>
+                    <div class="special-box">
+                        <div id="owl-demo" class="owl-carousel owl-theme">
+                            <div class="item item-type-zoom">
+                                <a href="#" class="item-hover">
+                                    <div class="item-info">
+                                        <div class="headline">
+                                            SALMON STEAK
+                                            <div class="line"></div>
+                                            <div class="dit-line">Grilled salmon steak, tender, juicy, full-flavored and seasoned to absolute perfection.</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-img">
+                                    <img src="static/images/special-menu-1.jpg" alt="sp-menu">
+                                </div>
+                            </div>
+                            <div class="item item-type-zoom">
+                                <a href="#" class="item-hover">
+                                    <div class="item-info">
+                                        <div class="headline">
+                                            ITALIAN PIZZA
+                                            <div class="line"></div>
+                                            <div class="dit-line">Authentic Italian pizza loaded with cheese, fresh herbs, and love!  flavors baked to cheesy perfection.</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-img">
+                                    <img src="static/images/special-menu-2.jpg" alt="sp-menu">
+                                </div>
+                            </div>
+                            <div class="item item-type-zoom">
+                                <a href="#" class="item-hover">
+                                    <div class="item-info">
+                                        <div class="headline">
+                                            VEG. ROLL
+                                            <div class="line"></div>
+                                            <div class="dit-line">Crispy veggie roll packed with fresh garden veggies,vibrant flavors and crunchy goodness.</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-img">
+                                    <img src="static/images/special-menu-3.jpg" alt="sp-menu">
+                                </div>
+                            </div>
+                            <div class="item item-type-zoom">
+                                <a href="#" class="item-hover">
+                                    <div class="item-info">
+                                        <div class="headline">
+                                            SALMON STEAK
+                                            <div class="line"></div>
+                                            <div class="dit-line">Grilled salmon steak, tender, juicy, full-flavored and seasoned to absolute perfection.</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-img">
+                                    <img src="static/images/special-menu-1.jpg" alt="sp-menu">
+                                </div>
+                            </div>
+                            <div class="item item-type-zoom">
+                                <a href="#" class="item-hover">
+                                    <div class="item-info">
+                                        <div class="headline">
+                                            ITALIAN PIZZA
+                                            <div class="line"></div>
+                                            <div class="dit-line">Authentic Italian pizza loaded with cheese, fresh herbs, and love!  flavors baked to cheesy perfection.</div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-img">
+                                    <img src="static/images/special-menu-2.jpg" alt="sp-menu">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end special-box -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end special-menu -->
+
+    <div id="menu" class="menu-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+                          Explore Cuisines From Around India 	
+					</h2>
+                        <p class="title-caption text-center">Savor the rich, diverse flavors of India’s finest cuisines.</p>
+                    </div>
+
+                    <!-- <header class="d-flex justify-content-center align-items-center p-3 bg-dark">
+                      <a href="{{ url_for('userdetails') }}" class="user-profile-button"
+                        >User Profile</a
+                      >
+                      <button onclick="goBack()" class="signout-button">Sign Out</button>
+                    </header> -->
+                    
+                    <div class="mt-5">
+                      <!-- <h2 class="text-center fw-bold mb-4" style="font-size: 2rem;">
+                        Explore Cuisines From Around India
+                      </h2> -->
+                    
+                      <div class="container">
+                        <div class="row g-4">
+                          {% for cuisine in cuisines %}
+                          <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                            <div class="cuisine-card h-100 text-center">
+                              <a href="{{ url_for('restaurants_by_cuisine', cuisine_type=cuisine.cuisine_type) }}" class="text-decoration-none text-dark d-flex flex-column h-100">
+                                <img src="{{ url_for('static', filename='Assets/cuisines/' + cuisine.cuisine_type + '.jpg') }}" class="cuisine-image" alt="cuisine_img" />
+                                <p class="cuisine-name">{{ cuisine.cuisine_type }}</p>
+                              </a>
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+
+               
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end menu -->
+
+    <div id="our_team" class="team-main pad-top-100 pad-bottom-100 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+						Our Team 	
+					</h2>
+                        <p class="title-caption text-center">At Food Funday, we’re a passionate team of food lovers, innovators, and dreamers dedicated to bringing the best dining experience straight to your door. Each member of our team plays a crucial role in ensuring your food journey is smooth, delicious, and fun! </p>
+                    </div>
+                    <div class="team-box">
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a href="#"><img src="static/images/staff-01.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>John Doggett</h3>
+                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <ul class="team-social">
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a href="#"><img src="static/images/staff-02.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Jeffrey Spender</h3>
+                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <ul class="team-social">
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sf-team">
+                                    <div class="thumb">
+                                        <a href="#"><img src="static/images/staff-03.jpg" alt=""></a>
+                                    </div>
+                                    <div class="text-col">
+                                        <h3>Monica Reyes</h3>
+                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
+                                        <ul class="team-social">
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                    </div>
+                    <!-- end team-box -->
+
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end team-main -->
+
+    <div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+						Our Gallery	
+					</h2>
+                        <p class="title-caption text-center">Explore our mouthwatering creations and get a glimpse of the deliciousness that awaits you! From sizzling pizzas to flavorful curries and refreshing drinks, every dish tells a story of passion, freshness, and authenticity.</p>
+                    </div>
+                    <div class="gal-container clearfix">
+                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#1">
+                                    <img src="static/images/gallery_01.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="1" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_01.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 1 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#2">
+                                    <img src="static/images/gallery_02.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="2" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_02.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 2 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#3">
+                                    <img src="static/images/gallery_03.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="3" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_03.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 3 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#4">
+                                    <img src="static/images/gallery_04.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="4" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_04.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 4 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#5">
+                                    <img src="static/images/gallery_05.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="5" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_05.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 5 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#9">
+                                    <img src="static/images/gallery_06.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="9" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_06.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 6 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#10">
+                                    <img src="static/images/gallery_07.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="10" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_07.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 7 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#11">
+                                    <img src="static/images/gallery_08.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="11" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_08.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 8 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#12">
+                                    <img src="static/images/gallery_09.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="12" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_09.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 9 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="#" data-toggle="modal" data-target="#13">
+                                    <img src="static/images/gallery_10.jpg" alt="" />
+                                </a>
+                                <div class="modal fade" id="13" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <div class="modal-body">
+                                                <img src="static/images/gallery_10.jpg" alt="" />
+                                            </div>
+                                            <div class="col-md-12 description">
+                                                <h4>This is the 10 one on my Gallery</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end gal-container -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+   
+    <div id="pricing" class="pricing-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="block-title text-center">
+						Pricing Offers	
+					</h2>
+                    <p>Celebrate flavor with our exclusive, limited-time offers — premium dishes at festive prices!</p>
+                </div>
+                <div class="panel-pricing-in">
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="static/images/store.png" alt="" />
+                                </div>
+                                <h3>Basic</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>₹300/<span>Month</span></strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> Ideal for casual foodies</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> No subscription fee</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Access to selected restaurants</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Standard delivery time</li>
+                                <li class="list-group-item"><i class="fa fa-times"></i> Pay per order with exciting deals</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="static/images/food.png" alt="" />
+                                </div>
+                                <h3>Pro</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>₹600/<span>Month</span></strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> Access to premium restaurants</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> For the ultimate food lovers</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Faster delivery with priority support</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Special discounts on select meals</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Monthly subscription with extra discounts</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+
+                    <!-- item -->
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <div class="panel panel-pricing">
+                            <div class="panel-heading">
+                                <div class="pric-icon">
+                                    <img src="static/images/coffee.png" alt="" />
+                                </div>
+                                <h3>Platinum</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>₹900/<span>Month</span></strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                                <li class="list-group-item"><i class="fa fa-check"></i> Unlimited restaurant access</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Free delivery on all orders</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Special rewards every month</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Exclusive Platinum-only deals and offers</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> Priority delivery on all orders</li>
+                                <li class="list-group-item"><i class="fa fa-check"></i> 24x7 Support</li>
+                            </ul>
+                            <div class="panel-footer">
+                                <a class="btn btn-lg btn-block hvr-underline-from-center" href="#">Purchase Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /item -->
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end pricing-main -->
+
+    <div id="reservation" class="reservations-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="form-reservations-box">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="block-title text-center">
+                    Online Delivery Within 10 Minutes	
+                    </h2>
+                        </div><br>
+                        <!-- <div class="row align-items-center"> -->
+      
+                            <!-- Left Side: Text -->
+                            <div class="col-lg-6 col-md-6">
+                              <div class="Home-text">
+                                <h2 class="block-title" style="color: black;">Get your Food , <br> Delivery at your Doorstep</h2>
+                                <h4 style="font-size: 30px; font-family: nautilus_pompiliusregular;" class="block-title">Check the website and get our ice cream, snacks,<br> drinks, pastries in 10 minutes.</h4>
+                              </div>
+                            </div>
+                      
+                            <!-- Right Side: Image -->
+                            <div class="col-lg-6 col-md-6 text-center">
+                              <div class="Home-image-div">
+                                <img src="../../static/Assets/Images/food-delivery-rider.png" class="home-image img-fluid" alt="Food Delivery Rider">
+                              </div>
+                            </div>
+                      
+                          </div>
+                        
+                        
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="reserve-book-btn text-center">
+                                    <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit"><a href="#">BOOK MY ORDER Now</a></button>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </form>
+                        <!-- end form -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end reservations-box -->
+            </div>
+            <!-- end row -->
+        
+        <!-- end container -->
+    </div>
+    <!-- end reservations-main -->
+
+    <div id="footer" class="footer-main">
+        <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                            <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                            <p> Stay Updated with the Latest Flavors, Deals & More!</p>
+                        </div>
+                        <form>
+                            <input type="email" placeholder="Enter your e-mail id">
+                            <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                        </form>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end footer-news -->
+        <div class="footer-box pad-top-70">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-in-main">
+                        <div class="footer-logo">
+                            <div class="text-center">
+                                <img src="static/images/logo.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-a">
+                                <h3>About Us</h3>
+                                <p>At Food Funday, we believe every meal should be a celebration.
+                                     We bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.</p>
+                                <ul class="socials-box footer-socials pull-left">
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!-- end footer-box-a -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-b">
+                                <h3>Popular cuisines</h3>
+                                <ul>
+                                    <li><a href="{{ url_for('index') }}#menu"> Hyderabadi</a></li>
+                                    <li><a href="{{ url_for('index') }}#menu"> Kerala</a></li>
+                                    <li><a href="{{ url_for('index') }}#menu"> Maharahstrian</a></li>
+                                    <li><a href="{{ url_for('index') }}#menu"> Parsi</a></li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-b -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-c">
+                                <h3>Contact Us</h3>
+                                <p>
+                                    <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                    <span>6 E, Gandhi Road, Bengaluru, India</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>
+									+91 80005 89080 
+								</span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span><a href="#">support@foodfunday.com</a></span>
+                                </p>
+                            </div>
+                            <!-- end footer-box-c -->
+                        </div>
+                        <!-- end col -->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-box-d">
+                                <h3>Opening Hours</h3>
+
+                                <ul>
+                                    <li>
+                                        <p>Monday - Thursday </p>
+                                        <span> 11:00 AM - 9:00 PM</span>
+                                    </li>
+                                    <li>
+                                        <p>Friday - Saturday </p>
+                                        <span>  11:00 AM - 5:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end footer-box-d -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end footer-in-main -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+            <div id="copyright" class="copyright-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h6 class="copy-title"> Copyright &copy; 2025 Food Funday. All rights are received.  </h6>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end copyright-main -->
+        </div>
+        <!-- end footer-box -->
+    </div>
+    <!-- end footer-main -->
+
+    
+
+    <!-- ALL JS FILES -->
+    <script src="staitc/js/all.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="static/js/custom.js"></script>
+    <script src="static/js/all.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/typer-js@1.0.0/typer.min.js"></script> -->
+<!-- Typing effect JS -->
+<!-- <script src="https://unpkg.com/typer-js@1.0.0/typer.min.js"></script> -->
+
+
+    <script>
+         $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) { 
+            $('#header').addClass('fixed-menu');
+        } else {
+            $('#header').removeClass('fixed-menu');
+        }
+    });
+        $(document).ready(function(){
+          $("#owl-demo").owlCarousel({
+            items: 3,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+          });
+        });
+        $('.slider-single').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    adaptiveHeight: true,
+    infinite: false,
+    useTransform: true,
+    speed: 400,
+    cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+    asNavFor: '.slider-nav' // 🔥 Important: link to slider-nav
+});
+
+$('.slider-nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.slider-single', // 🔥 Important: link to slider-single
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: false,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 769,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 420,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+});
+
+// Highlight the active tab
+$('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+    $('.slider-nav .slick-slide').removeClass('is-active');
+    $('.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]').addClass('is-active');
+});
+
+        
+      </script>
+</body>
+</html>

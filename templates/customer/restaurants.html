@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../static/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../../../static/css/bootstrap.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../../static/css/responsive.css">
+    <link rel="stylesheet" href="../../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/css/slick.css">
+
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="../../static/css/colors/orange.css" />
+
+    <!-- Modernizer -->
+    <script src="../../static/js/modernizer.js"></script>
+    
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    /> -->
+    <style>
+      
+      .restaurant-card {
+        margin-bottom: 20px;
+        padding: 20px;
+        /* border: 1px solid #ddd; */
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        
+      }
+
+      .restaurant-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .restaurant-card p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="header" class="header-block-top">
+          <div class="container">
+              <div class="row">
+                  <div class="main-menu">
+                      <!-- navbar -->
+                      <nav class="navbar navbar-default" id="mainNav">
+                          <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                              <div class="logo">
+                                  <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                      <img src="../../static/images/logo.png" alt="">
+                                  </a>
+                              </div>
+                          </div>
+                          <div id="navbar" class="navbar-collapse collapse">
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li ><a href="{{ url_for('index') }}">Home</a></li>
+                                  <li><a href="{{ url_for('index') }}#about">About us</a></li>
+                                  <li class="active"><a href="#menu">Restaurants</a></li>
+                                  <li><a href="#gallery">Gallery</a></li>
+                                  <li><a href="#footer">Contact us</a></li>
+                                  <li><a href="{{ url_for('userdetails') }}" 
+                                    >User Profile</a
+                                  ></li>
+                                  <!-- <li><a href="{{ url_for('login') }}" >Sign Out</a></li> -->
+                                  <li><a href="#" onclick="return goBack();" class="btn btn-secondary mb-3">Back</a></li>
+                              </ul>
+                          </div>
+                          <!-- end nav-collapse -->
+                      </nav>
+                      <!-- end navbar -->
+                  </div>
+              </div>
+              <!-- end row -->
+          </div>
+          <!-- end container-fluid -->
+      </header>
+      <!-- end header -->
+  </div>
+<!-- end site-header -->
+
+   
+
+  <div class="special-menu pad-top-100 parallax" id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title color-white text-center" style="top: 20px;">  Restaurants	 </h2>
+                    <!-- <h5 class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </h5> -->
+                   
+                      <!-- <h1 class="text-center mb-4">Restaurants</h1> -->
+                      
+                  </div>
+                  <div id="restaurant" class="container my-5" >
+                  <!-- <button onclick="goBack()" class="btn btn-secondary mb-3">Back</button> -->
+                
+                  <div class="row" >
+                    {% for restaurant in restaurants %}
+                    <div class="col-sm-6 col-md-4 col-lg-3" style="margin-left: 65px ; margin-top: 20px; ">
+                      <a
+                        href="{{ url_for('restaurant_menu', restaurant_id=restaurant.restaurant_id, cuisine_type=restaurant.cuisine_type) }}"
+                        class="text-decoration-none"
+                      >
+                        <div class="restaurant-card" style="color: black;">
+                          <img class="card-title" src="{{ restaurant.resphoto_url }}" alt="" >
+                          <h5 class="card-title block-title text-center" style="font-size: x-large; top: 10px;">{{ restaurant.restaurant_name }}</h5>
+                          <p class="card-text">Cuisine: {{ restaurant.cuisine_type }}</p>
+                          <p class="card-text">{{ restaurant.description }}</p>
+                          <p class="card-text">Timings: {{ restaurant.timings }}</p>
+                          <p class="card-text">Rating: {{ restaurant.rating }}</p>
+                          <a
+                            href="{{ url_for('restaurant_menu', restaurant_id=restaurant.restaurant_id, cuisine_type=restaurant.cuisine_type) }}"
+                            class="btn btn-primary" style="background-color: #e75b1e; border-color: #e75b1e;"
+                            >Order Now</a
+                          >
+                        </div>
+                      </a>
+                    </div>
+                    {% endfor %}
+                  </div>
+
+                  <br>
+                  <br>
+                </div>
+            
+
+
+
+
+  </div>
+  <!-- end col -->
+</div>
+<!-- end row -->
+</div>
+<!-- end container -->
+</div>
+
+
+
+
+<div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title text-center">
+         Gallery	
+      </h2>
+                    <p class="title-caption text-center">Explore our mouthwatering creations and get a glimpse of the deliciousness that awaits you! From sizzling pizzas to flavorful curries and refreshing drinks, every dish tells a story of passion, freshness, and authenticity. </p>
+                </div>
+                <div class="gal-container clearfix">
+                    <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#1">
+                                <img src="../../static/images/gallery_01.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="1" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_01.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 1 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#2">
+                                <img src="../../static/images/gallery_02.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="2" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_02.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 2 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#3">
+                                <img src="../../static/images/gallery_03.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="3" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_03.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 3 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#4">
+                                <img src="../../static/images/gallery_04.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="4" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_04.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 4 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#5">
+                                <img src="../../static/images/gallery_05.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="5" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_05.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 5 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#9">
+                                <img src="../../static/images/gallery_06.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="9" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_06.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 6 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#10">
+                                <img src="../../static/images/gallery_07.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="10" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_07.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 7 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#11">
+                                <img src="../../static/images/gallery_08.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="11" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_08.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 8 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#12">
+                                <img src="../../static/images/gallery_09.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="12" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_09.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 9 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                        <div class="box">
+                            <a href="#" data-toggle="modal" data-target="#13">
+                                <img src="../../static/images/gallery_10.jpg" alt="" />
+                            </a>
+                            <div class="modal fade" id="13" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <div class="modal-body">
+                                            <img src="../../static/images/gallery_10.jpg" alt="" />
+                                        </div>
+                                        <div class="col-md-12 description">
+                                            <h4>This is the 10 one on my Gallery</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end gal-container -->
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+<!-- end pricing-main -->
+
+<div id="reservation" class="reservations-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="form-reservations-box">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title text-center">
+                Online Delivery Within 10 Minutes	
+                </h2>
+                    </div><br>
+                    <!-- <div class="row align-items-center"> -->
+  
+                        <!-- Left Side: Text -->
+                        <div class="col-lg-6 col-md-6">
+                          <div class="Home-text">
+                            <h2 class="block-title" style="color: black;">Get your Food , <br> Delivery at your Doorstep</h2>
+                            <h4 style="font-size: 30px; font-family: nautilus_pompiliusregular;" class="block-title">Check the website and get our ice cream, snacks,<br> drinks, pastries in 10 minutes.</h4>
+                          </div>
+                        </div>
+                  
+                        <!-- Right Side: Image -->
+                        <div class="col-lg-6 col-md-6 text-center">
+                          <div class="Home-image-div">
+                            <img src="../../static/Assets/Images/food-delivery-rider.png" class="home-image img-fluid" alt="Food Delivery Rider">
+                          </div>
+                        </div>
+                  
+                      </div>
+                    
+                    
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="reserve-book-btn text-center">
+                                <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit"><a href="#">BOOK MY ORDER Now</a></button>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </form>
+                    <!-- end form -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end reservations-box -->
+        </div>
+        <!-- end row -->
+    
+    <!-- end container -->
+</div>
+
+<div id="footer" class="footer-main">
+    <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                        <p> Stay Updated with the Latest Flavors, Deals & More!</p>
+                    </div>
+                    <form>
+                        <input type="email" placeholder="Enter your e-mail id">
+                        <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                    </form>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end footer-news -->
+    <div class="footer-box pad-top-70">
+        <div class="container">
+            <div class="row">
+                <div class="footer-in-main">
+                    <div class="footer-logo">
+                        <div class="text-center">
+                            <img src="static/images/logo.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-a">
+                            <h3>About Us</h3>
+                            <p>At Food Funday, we believe every meal should be a celebration.
+                                 We bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.</p>
+                            <ul class="socials-box footer-socials pull-left">
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- end footer-box-a -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-b">
+                            <h3>Popular cuisines</h3>
+                            <ul>
+                                <li><a href="{{ url_for('index') }}#menu"> Hyderabadi</a></li>
+                                <li><a href="{{ url_for('index') }}#menu"> Kerala</a></li>
+                                <li><a href="{{ url_for('index') }}#menu"> Maharahstrian</a></li>
+                                <li><a href="{{ url_for('index') }}#menu"> Parsi</a></li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-b -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-c">
+                            <h3>Contact Us</h3>
+                            <p>
+                                <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                <span>6 E, Gandhi Road, Bengaluru, India</span>
+                            </p>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>
+                                +91 80005 89080 
+                            </span>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span><a href="#">support@foodfunday.com</a></span>
+                            </p>
+                        </div>
+                        <!-- end footer-box-c -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-d">
+                            <h3>Opening Hours</h3>
+
+                            <ul>
+                                <li>
+                                    <p>Monday - Thursday </p>
+                                    <span> 11:00 AM - 9:00 PM</span>
+                                </li>
+                                <li>
+                                    <p>Friday - Saturday </p>
+                                    <span>  11:00 AM - 5:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-d -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end footer-in-main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div id="copyright" class="copyright-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h6 class="copy-title"> Copyright &copy; 2025 Food Funday. All rights are received.  </h6>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end copyright-main -->
+    </div>
+    <!-- end footer-box -->
+</div>
+  <!-- end footer-main -->
+
+  
+
+  <!-- ALL JS FILES -->
+  <script src="../staitc/js/all.js"></script>
+  <script src="../../static/js/bootstrap.min.js"></script>
+  <!-- ALL PLUGINS -->
+  <script src="../../static/js/custom.js"></script>
+  <script src="../../static/js/all.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/typer-js@1.0.0/typer.min.js"></script> -->
+<!-- Typing effect JS -->
+<!-- <script src="https://unpkg.com/typer-js@1.0.0/typer.min.js"></script> -->
+
+
+  <script>
+       $(window).scroll(function () {
+      if ($(this).scrollTop() > 50) { 
+          $('#header').addClass('fixed-menu');
+      } else {
+          $('#header').removeClass('fixed-menu');
+      }
+  });
+      $(document).ready(function(){
+        $("#owl-demo").owlCarousel({
+          items: 3,
+          loop: true,
+          margin: 10,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true
+        });
+      });
+      $('.slider-single').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: false,
+  adaptiveHeight: true,
+  infinite: false,
+  useTransform: true,
+  speed: 400,
+  cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+  asNavFor: '.slider-nav' // 🔥 Important: link to slider-nav
+});
+
+$('.slider-nav').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  asNavFor: '.slider-single', // 🔥 Important: link to slider-single
+  dots: false,
+  centerMode: false,
+  focusOnSelect: true,
+  infinite: false,
+  responsive: [
+      {
+          breakpoint: 1024,
+          settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+          }
+      },
+      {
+          breakpoint: 769,
+          settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+          }
+      },
+      {
+          breakpoint: 420,
+          settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+          }
+      }
+  ]
+});
+
+// Highlight the active tab
+$('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+  $('.slider-nav .slick-slide').removeClass('is-active');
+  $('.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]').addClass('is-active');
+});
+
+   
+      function goBack() {
+        window.history.back();
+        return false; 
+      }
+    </script>
+  </body>
+</html>
