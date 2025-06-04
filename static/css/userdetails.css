@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    /* margin: 20px;
+    padding: 0; */
+    background-color: #f2f2f2;
+}
+
+
+
+.form-control:focus {
+    box-shadow: none;
+    /* border-color: #BA68C8 */
+}
+
+.profile-button {
+    background: #e75b1e;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #e75b1e;
+}
+
+.profile-button:focus {
+    background: #e75b1e;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #e75b1e;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #e75b1e;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 15px
+}
+
+
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+.btn-back {
+    background-color: #555; /* Dark grey color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    text-decoration: none; /* Remove default link underline */
+    display: inline-block; /* Ensure proper button display */
+}
