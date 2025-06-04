@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order details</title>
+    <link rel="stylesheet" href="../static/css/userdetails.css" />
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="static/css/colors/orange.css" />
+
+    <!-- Modernizer -->
+    <script src="static/js/modernizer.js"></script>
+    
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+table {
+        /* background-color: #fff; */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      th {
+        color:  #e75b1e;
+        /* color: #ffffff; */
+      }
+      .partner-executives {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+        .partner {
+            display: inline;
+    width: 45%;
+    max-width: 250px;
+    height: 150px;
+    background-color: #e75b1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.partner-count {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.partner p {
+    text-align: center;
+    color: white;
+}
+
+
+</style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="header" class="header-block-top">
+          <div class="container">
+              <div class="row">
+                  <div class="main-menu">
+                      <!-- navbar -->
+                      <nav class="navbar navbar-default" id="mainNav">
+                          <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                              <div class="logo">
+                                  <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                      <img src="static/images/logo.png" alt="">
+                                  </a>
+                              </div>
+                          </div>
+                          <div id="navbar" class="navbar-collapse collapse">
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li class="active"><a href="#banner">Home</a></li>
+                                  <li><a href="#about">About us</a></li>
+                                  <li><a href="#agent" 
+                                    >Agent Profile</a
+                                  ></li>
+                                  <li><a href="#order">Delivery</a></li>
+                                  <li><a href="#footer">Contact us</a></li>
+                                  
+                                  <li><a href="{{ url_for('home')}}" >Sign Out</a></li>
+                                </ul>
+                          </div>
+                          <!-- end nav-collapse -->
+                      </nav>
+                      <!-- end navbar -->
+                  </div>
+              </div>
+              <!-- end row -->
+          </div>
+          <!-- end container-fluid -->
+      </header>
+      <!-- end header -->
+  </div>
+  <div id="banner" class="banner full-screen-mode parallax">
+    <div class="container pr">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell">
+                        <h1>Dinner with us  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Friends:Family:Officemates" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
+                        <h2>Delicious Meals, Delivered Fast </h2>
+                        <p class="block-title">Craving your favorite food? We've got you covered!
+                            Browse restaurants near you, order in just a few taps, and enjoy hot, fresh meals delivered straight to your door.
+                            <br>
+                            🍔 Fresh Ingredients      
+                            🚀 Lightning-Fast Delivery 
+                            💳 Easy and Secure Payments
+                            <br>
+                            Order now and satisfy your cravings!</p>
+
+                            <div class="book-btn">
+                              <a href="#order" class="table-btn hvr-underline-from-center">Delivery Order</a>
+                          </div>
+                        
+                        <a href="#about">
+                            <div class="mouse"></div>
+                        </a>
+                    </div>
+                    <!-- end banner-cell -->
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end banner -->
+
+<div id="about" class="about-main pad-top-100 pad-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <h2 class="block-title"> About Us </h2>
+                    <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
+                    <h3>Welcome to Food Funday! 🎉🍴</h3>
+                    <p style="color: black; font-weight:bolder;"> 
+
+                        At Food Funday, we believe every meal should be a celebration.
+                        Whether you’re craving a cheesy pizza, spicy biryani, or a sweet dessert, we bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.
+                        
+                        With our user-friendly interface, ordering from your go-to restaurants has never been smoother. Whether it's a quick bite from your local diner or a special treat from a renowned chain, we've got you covered. Our diverse selection of eateries ensures there's something to please every palate. And with our efficient delivery service, you can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                       
+                        
+                         </p>
+
+                    <p style="color: black; font-weight:bolder;">  
+                         And with our efficient delivery service, We’re passionate about making your food ordering experience simple, fun, and reliable. You can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                        With just a few clicks, you can explore new tastes, support local kitchens, and enjoy delicious moments every day. </p>
+
+                    <p style="color: black; font-weight:bolder;">Because every day is a Funday when great food is just a tap away! </p>
+
+                    
+                </div>
+                
+            </div>
+            <!-- end col -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <div class="about-images">
+                        <img class="about-main" src="static/images/about-main.jpg" alt="About Main Image">
+                        <img class="about-inset" src="static/images/about-inset.jpg" alt="About Inset Image">
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <div class="partner-executives">
+            <div class="partner">
+              <div class="partner-count">10+</div>
+              <p>Restaurant Partners</p>
+            </div>
+            <div class="partner">
+              <div class="partner-count">10+</div>
+              <p>Happy Customers</p>
+            </div>
+            <div class="partner">
+              <div class="partner-count">10+</div>
+              <p>Delivery Executives</p>
+            </div>
+          </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<div class="container rounded bg-white mt-5 mb-5" style="padding-top: 100px;" id="agent">
+  <h4 class="text-center block-title">Agent Account Details </h4>
+
+  <div class="row">
+      <!-- Profile Photo and Email -->
+      <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img class="rounded-circle mt-5" width="150px"
+                   src="{{  delivery.profile_pic_url|default('https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg') }}">
+              <br><br><span class="font-weight-bold">{{  agent.agent_name }} 
+              
+          </div>
+      </div>
+      <!-- Profile Info (Editable Form) -->
+<div class="col-md-5 border-right" style="margin-left: 30px;">
+  <form method="POST" action="/update_deliverydetails">  <!-- you need a POST route to handle this -->
+      <div class="p-3 py-5">
+         
+
+          <div class="row mt-3">
+            <div class="col-md-12 mb-3">
+              <label class="labels">Agent ID</label>
+                  <input type="text" class="form-control" name="agent_id" value="{{  agent.agent_id  }}">
+          </div>
+            <div class="col-md-12 mb-3">
+              <label class="labels">Agent Name</label>
+                  <input type="text" class="form-control" name="agent_name" value="{{  agent.agent_name }}">
+          </div>
+              <div class="col-md-12 mb-3">
+                  <label class="labels">Email ID</label>
+                  <input type="email" class="form-control" name="email" value="{{ agent.email }}">
+              </div>
+              <div class="col-md-12 mb-3">
+                  <label class="labels">Password</label>
+                  <input type="password" class="form-control" name="password" value="{{  agent.password }}">
+              </div>
+              <div class="col-md-12 mb-3">
+                <label class="labels">Date of Birth</label>
+                <input type="date" class="form-control" name="dob" value="{{  agent.dob }}">
+            </div>  
+              <div class="col-md-12 mb-3">
+                <label class="labels">Vehichle Number</label>
+                <input type="vehichle" class="form-control" name="vehichle" value="{{ agent.vehicle_number }}">
+            </div>
+            <div class="col-md-12 mb-3">
+              <label class="labels">License ID</label>
+              <input type="license" class="form-control" name="license" value="{{ agent.license_id }}">
+          </div>
+              <div class="col-md-12 mb-3">
+                  <label class="labels">Mobile Number</label>
+                  <input type="text" class="form-control" name="phone" value="{{ agent.phone_num }}">
+              </div>
+              
+              <div class="col-md-12 mb-3">
+                  <label class="labels">Location</label>
+                  <input type="text" class="form-control" name="location" value="{{ agent.location }}">
+              </div>
+              <div class="col-md-12 mb-3">
+                <label class="labels">Availability</label>
+                <input type="text" class="form-control" name="availability" value="{{ agent.availability }}">
+            </div>
+          </div><br>
+
+          <div class="mt-5 text-center" >
+              <button class="btn btn-primary profile-button" type="submit" style="background-color: #e75b1e;border-color: #e75b1e;">Save Changes</button>
+          </div>
+      </div>
+  </form>
+</div>
+
+
+      <!-- Experience -->
+   
+  </div>
+</div><br><br>
+<div id="order" class="container">
+   
+    <h1  class="block-title text-center">Orders</h1>
+    <div class="table-responsive">
+    <table class="table">
+      <tr style="font-family: nautilus_pompiliusregular; font-size: 20px;">
+        <th>Order ID</th>
+        <th>Restaurant Address</th>
+        <th>Customer Address</th>
+        <th>Delivery Charges</th>
+        <th>Pickup Time</th>
+        <th>Delivery/ETA Time</th>
+        <th>Status</th>
+        <th>Rating</th>
+        <th>Review</th>
+      </tr>
+      {% for delivery in delivery %}
+      <tr style="color: black; font-size: 16px;">
+        <td>{{ delivery.order_id }}</td>
+        <td>
+          {{ delivery.restaurant_address.building_name }}, {{
+          delivery.restaurant_address.street }}, {{
+          delivery.restaurant_address.city }}, {{
+          delivery.restaurant_address.state }} - {{
+          delivery.restaurant_address.pin_code }}
+        </td>
+        <td>
+          {{ delivery.customer_address.building_name }}, {{
+          delivery.customer_address.street }}, {{ delivery.customer_address.city
+          }}, {{ delivery.customer_address.state }} - {{
+          delivery.customer_address.pin_code }}
+        </td>
+        <td>{{ delivery.delivery_charges }}</td>
+        <td>{{ delivery.pickup_time }}</td>
+        <td>{{ delivery.delivery_time }}</td>
+        <!-- <td>{{ delivery.delivery_status }}</td> -->
+        <td>
+          <form method="POST" action="/update_delivery_status">
+            <input type="hidden" name="order_id" value="{{ delivery.order_id }}">
+            <select name="delivery_status" class="form-select">
+              <option value="Placed" {% if delivery.delivery_status == 'Placed' %}selected{% endif %}>Placed</option>
+              <option value="On the way" {% if delivery.delivery_status == 'On the way' %}selected{% endif %}>On the way</option>
+              <option value="Delivered" {% if delivery.delivery_status == 'Delivered' %}selected{% endif %}>Delivered</option>
+            </select>
+            <button type="submit" class="btn btn-sm btn-primary mt-1 " style="background-color: #e75b1e; border-color: #e75b1e;">Update</button>
+          </form>
+        </td>
+        {% if delivery.delivery_status == "On the way" %}
+        <td>NA</td>
+        {% else %}
+        <td>{{ delivery.delivery_rating }}</td>
+        {% endif %}
+        <td>{{ delivery.delivery_review }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+    <div id="footer" class="footer-main">
+      <div class="footer-news pad-top-100 pad-bottom-70 parallax">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                          <h2 class="ft-title color-white text-center"> Newsletter </h2>
+                          <p> Stay Updated with the Latest Flavors, Deals & More!</p>
+                      </div>
+                      <form>
+                          <input type="email" placeholder="Enter your e-mail id">
+                          <a href="#" class="orange-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+                      </form>
+                  </div>
+                  <!-- end col -->
+              </div>
+              <!-- end row -->
+          </div>
+          <!-- end container -->
+      </div>
+      <!-- end footer-news -->
+      <div class="footer-box pad-top-70">
+          <div class="container">
+              <div class="row">
+                  <div class="footer-in-main">
+                      <div class="footer-logo">
+                          <div class="text-center">
+                              <img src="static/images/logo.png" alt="" />
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                          <div class="footer-box-a">
+                              <h3>About Us</h3>
+                              <p>At Food Funday, we believe every meal should be a celebration.
+                                   We bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.</p>
+                              <ul class="socials-box footer-socials pull-left">
+                                  <li>
+                                      <a href="#">
+                                          <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#">
+                                          <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#">
+                                          <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#">
+                                          <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#">
+                                          <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                      </a>
+                                  </li>
+                              </ul>
+
+                          </div>
+                          <!-- end footer-box-a -->
+                      </div>
+                      <!-- end col -->
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                          <div class="footer-box-b">
+                              <h3>Popular cuisines</h3>
+                              <ul>
+                                <li><a href="{{ url_for('login') }}"> Hyderabadi</a></li>
+                                <li><a href="{{ url_for('login') }}"> Kerala</a></li>
+                                <li><a href="{{ url_for('login') }}"> Maharahstrian</a></li>
+                                <li><a href="{{ url_for('login') }}"> Parsi</a></li>
+                            </ul>
+                          </div>
+                          <!-- end footer-box-b -->
+                      </div>
+                      <!-- end col -->
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                          <div class="footer-box-c">
+                              <h3>Contact Us</h3>
+                              <p>
+                                  <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                  <span>6 E, Gandhi Road, Bengaluru, India</span>
+                              </p>
+                              <p>
+                                  <i class="fa fa-mobile" aria-hidden="true"></i>
+                                  <span>
+                +91 80005 89080 
+              </span>
+                              </p>
+                              <p>
+                                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                                  <span><a href="#">support@foodfunday.com</a></span>
+                              </p>
+                          </div>
+                          <!-- end footer-box-c -->
+                      </div>
+                      <!-- end col -->
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                          <div class="footer-box-d">
+                              <h3>Opening Hours</h3>
+
+                              <ul>
+                                  <li>
+                                      <p>Monday - Thursday </p>
+                                      <span> 11:00 AM - 9:00 PM</span>
+                                  </li>
+                                  <li>
+                                      <p>Friday - Saturday </p>
+                                      <span>  11:00 AM - 5:00 PM</span>
+                                  </li>
+                              </ul>
+                          </div>
+                          <!-- end footer-box-d -->
+                      </div>
+                      <!-- end col -->
+                  </div>
+                  <!-- end footer-in-main -->
+              </div>
+              <!-- end row -->
+          </div>
+          <!-- end container -->
+          <div id="copyright" class="copyright-main">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <h6 class="copy-title"> Copyright &copy; 2025 Food Funday. All rights are received.  </h6>
+                      </div>
+                  </div>
+                  <!-- end row -->
+              </div>
+              <!-- end container -->
+          </div>
+          <!-- end copyright-main -->
+      </div>
+      <!-- end footer-box -->
+  </div>
+  <!-- end footer-main -->
+
+  
+
+  <!-- ALL JS FILES -->
+  <!-- <script src="staitc/js/all.js"></script> -->
+  <script src="static/js/bootstrap.min.js"></script>
+  <!-- ALL PLUGINS -->
+  <script src="static/js/custom.js"></script>
+  <script src="static/js/all.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+  window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+      header.classList.add('fixed-menu');
+    } else {
+      header.classList.remove('fixed-menu');
+    }
+  });
+
+      function goBack() {
+        window.location.href = "/";
+      }
+      $(document).ready(function(){
+          $("#owl-demo").owlCarousel({
+            items: 3,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+          });
+        });
+        $('.slider-single').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    adaptiveHeight: true,
+    infinite: false,
+    useTransform: true,
+    speed: 400,
+    cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+    asNavFor: '.slider-nav' // 🔥 Important: link to slider-nav
+});
+
+$('.slider-nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.slider-single', // 🔥 Important: link to slider-single
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: false,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 769,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 420,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+});
+
+// Highlight the active tab
+$('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+    $('.slider-nav .slick-slide').removeClass('is-active');
+    $('.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]').addClass('is-active');
+});
+
+    </script>
+  </body>
+</html>
