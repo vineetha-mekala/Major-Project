@@ -1,0 +1,281 @@
+{% extends "nutrienttracker/base.html" %}
+
+{% block title %}
+Food Tracker | Food Details 
+{% endblock %}
+
+    {% block body %}
+    <div id="site-header">
+        <header id="header" class="header-block-top">
+            <div class="container">
+                <div class="row">
+                    <div class="main-menu">
+                        <!-- navbar -->
+                        <nav class="navbar navbar-default" id="mainNav">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="logo">
+                                    <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="#banner">Home</a></li>
+                                    <li><a href="#about">About us</a></li>
+                                    <li><a href="#footer">Contact us</a></li>
+                                    <li><a href="{{ url_for('userdetails') }}" 
+                                      >User Profile</a
+                                    ></li>
+                                    <li><a href="{{ url_for('home1') }}" 
+                                        >Nutrient</a
+                                      ></li>
+                                      <li><a class=" open-form" href="#">Add Food</a></li>
+                                      <li><a class="food-detail" href="{{url_for('foodDetails')}}">Food Details</a></li>
+                                    <li><a href="{{ url_for('home')}}" >Sign Out</a></li>
+                                  </ul>
+                            </div>
+                            <!-- end nav-collapse -->
+                        </nav>
+                        <!-- end navbar -->
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container-fluid -->
+        </header>
+        <!-- end header -->
+    </div>
+<div style="background-color: #f2f2f2;">
+    <div>
+        <div class="food-details-container" style="padding-top: 150px; ">
+            <h2 class="block-title text-center"> Food Details </h2>
+            <input type="text" id="foodSearch" class="form-control" placeholder="Search food..." onkeyup="searchFood()">
+            
+            <!-- Dynamic results container for the search -->
+            <div id="searchResults" class="search-results-container " 
+           style="background-color:#e9f3f1;">
+            </div>
+        <br>
+        <br>
+        <!-- <h2>Food Details</h2> -->
+            {% for i in results %}
+            
+            <div class="individual-sub-container">
+                <h3 class="date"> {{i.name}} </h3>
+                <div class="totals">
+                    <ul class="totals-list">
+                        <li>Protein <span>{{i.protein}}</span></li>
+                        <li>Carbohydrates <span>{{i.carbs}}</span></li>
+                        <li>Fat <span>{{i.fat}}</span></li>
+                        <li>Calories <span>{{i.calories}}</span></li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>{% include  "nutrienttracker/footer.html" %}
+        
+    </div>
+</div>
+
+<script>
+    // Function to handle search input and fetch suggestions
+    // function searchFood() {
+    //     var query = document.getElementById('foodSearch').value;
+        
+    //     if (query.length >= 3) { // Start searching after 3 characters
+    //         fetch('/search-food?query=' + query)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 var resultsContainer = document.getElementById('searchResults');
+    //                 resultsContainer.innerHTML = ''; // Clear previous search results
+                    
+    //                 // Dynamically update the search results on the same page
+    //                 if (data.suggestions.length > 0) {
+    //                     data.suggestions.forEach(function(suggestion) {
+    //                         var resultItem = document.createElement('div');
+    //                         resultItem.classList.add('search-result-item');
+    //                         resultItem.innerHTML = `
+    //                             <h3 class="date">${suggestion.name}</h3>
+    //                             <div class="totals">
+    //                                 <ul class="totals-list" >
+    //                                     <li>Protein: <span>${suggestion.protein}</span></li>
+    //                                     <li>Carbs: <span>${suggestion.carbs}</span></li>
+    //                                     <li>Fat: <span>${suggestion.fat}</span></li>
+    //                                     <li>Calories: <span>${suggestion.calories}</span></li>
+    //                                 </ul>
+    //                             </div>
+    //                         `;
+    //                         resultsContainer.appendChild(resultItem);
+    //                     });
+    //                 } else {
+    //                     resultsContainer.innerHTML = '<p>No results found.</p>';
+    //                 }
+    //             });
+    //     } else {
+    //         document.getElementById('searchResults').innerHTML = ''; // Clear results if less than 3 characters
+    //     }
+    // }
+    // 
+    
+//     function searchFood() {
+//     var query = document.getElementById('foodSearch').value;
+
+//     if (query.length >= 3) { // Start searching after 3 characters
+//         fetch('/search-food?query=' + query)
+//             .then(response => response.json())
+//             .then(data => {
+//                 var resultsContainer = document.getElementById('searchResults');
+//                 resultsContainer.innerHTML = ''; // Clear previous search results
+
+//                 if (data.suggestions.length > 0) {
+//                     data.suggestions.forEach(function(suggestion) {
+//                         var resultItem = document.createElement('div');
+//                         resultItem.classList.add('search-result-item');
+//                         resultItem.innerHTML = `
+//                             <h3 class="date">${suggestion.name}</h3>
+//                             <div class="totals">
+//                                 <ul class="totals-list" style="
+//                                     list-style-type: none;
+//                                     padding: 0;
+//                                     margin: 10px 0;
+//                                     background-color: #f0f8ff;
+//                                     border: 1px solid #ddd;
+//                                     border-radius: 8px;
+//                                     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+//                                 ">
+//                                     <li style="margin: 5px 10px;">Protein: <span>${suggestion.protein}</span></li>
+//                                     <li style="margin: 5px 10px;">Carbs: <span>${suggestion.carbs}</span></li>
+//                                     <li style="margin: 5px 10px;">Fat: <span>${suggestion.fat}</span></li>
+//                                     <li style="margin: 5px 10px;">Calories: <span>${suggestion.calories}</span></li>
+//                                 </ul>
+//                             </div>
+//                         `;
+//                         resultsContainer.appendChild(resultItem);
+//                     });
+//                 } else {
+//                     resultsContainer.innerHTML = '<p>No results found.</p>';
+//                 }
+//             });
+//     } else {
+//         document.getElementById('searchResults').innerHTML = ''; // Clear results if less than 3 characters
+//     }
+// }
+
+    // Inject CSS dynamically from JS
+    const css = `
+    .search-results-container {
+         background-color: #e9f3f1;
+    margin-bottom: 2.4rem;
+    border-radius: 20px;
+    }
+    
+    .search-result-item {
+        padding: 30px;
+    }
+    
+    .search-result-item  .date{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #e9f3f1;
+    background-color: #E75B1E;
+    padding: 1.2rem 2.4rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+    
+
+    .search-result-item .totals {
+        padding: 1.6rem 4rem;
+        background-color: white;
+         border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+         
+       
+       
+    }
+
+    .search-result-item .totals-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-result-item .totals-list li {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #196e5a;
+        
+         border-buttom-left-radius: 20px;
+    border-buttom-right-radius: 20px;
+    }
+
+    .search-result-item .totals-list li span {
+        background-color: #E75B1E;
+        padding: 0.4rem 1.2rem;
+        color: #e9f3f1;
+        margin-left: 1rem;
+        border-radius: 30px;
+    }
+        .search-title {
+        padding-top:30px;
+        margin-left: 40%;
+    font-size: 3.8rem;
+    color: #E75B1E;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+    `;
+    const style = document.createElement('style');
+    style.innerHTML = css;
+    document.head.appendChild(style);
+
+    // Search food function
+    function searchFood() {
+        var query = document.getElementById('foodSearch').value;
+
+        if (query.length >= 3) {
+            fetch('/search-food?query=' + query)
+                .then(response => response.json())
+                .then(data => {
+                    var resultsContainer = document.getElementById('searchResults');
+                    resultsContainer.innerHTML = '';
+
+                    if (data.suggestions.length > 0) {
+                        resultsContainer.innerHTML = '<h2 class="search-title ">Search Results:</h2>';
+                        data.suggestions.forEach(function(suggestion) {
+                            var resultItem = document.createElement('div');
+                            resultItem.classList.add('search-result-item');
+         
+                            resultItem.innerHTML = `
+                            
+                                <h3 class="date">${suggestion.name}</h3>
+                                <div class="totals">
+                                    <ul class="totals-list">
+                                        <li>Protein: <span>${suggestion.protein}</span></li>
+                                        <li>Carbs: <span>${suggestion.carbs}</span></li>
+                                        <li>Fat: <span>${suggestion.fat}</span></li>
+                                        <li>Calories: <span>${suggestion.calories}</span></li>
+                                    </ul>
+                                </div>
+                            `;
+                            resultsContainer.appendChild(resultItem);
+                        });
+                    } else {
+                        resultsContainer.innerHTML = '<p>No results found.</p>';
+                    }
+                });
+        } else {
+            document.getElementById('searchResults').innerHTML = '';
+        }
+    }
+
+    </script>
+{% endblock %} 

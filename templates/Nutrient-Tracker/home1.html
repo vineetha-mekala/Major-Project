@@ -1,0 +1,167 @@
+{% extends "nutrienttracker/base.html" %}
+
+{% block title %}
+Food Tracker | Home
+{% endblock %}
+
+
+{% block body %}
+<div id="banner" class="banner full-screen-mode parallax">
+    <div class="container pr">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="banner-static">
+                <div class="banner-text">
+                    <div class="banner-cell">
+                        <h1>🥗 Nutrient Tracker</h1>
+                        <h2>Automatically calculate total protein, carbs, fat, and calories for each day. </h2>
+                        <p class="block-title">
+                            Welcome to your personal Nutrient Tracker — your all-in-one space to monitor daily food intake and keep your nutrition goals on track!
+                           </p>
+                        <div class="book-btn">
+                            <a href="#menu" class="table-btn hvr-underline-from-center">Track my Nutrient</a>
+                        </div>
+                        <a href="#menu">
+                            <div class="mouse"></div>
+                        </a>
+                    </div>
+                    <!-- end banner-cell -->
+                </div>
+                <!-- end banner-text -->
+            </div>
+            <!-- end banner-static -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end container -->
+</div>
+<div id="tips" class="reservations-main pad-top-100">
+
+<div class="container mt-5" style="color: black;">
+    <div class="row align-items-center" >
+        <div class="form-reservations-box">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+            <h2 class="block-title text-center">
+                📅 What You Can Do Here</h2>
+        </div><br>
+    <ul style="font-size: 17px; line-height: 35px;" >
+        <li>📝 <strong>Log Your Daily Intake:</strong> Add meals or food items you’ve consumed today or on any previous date.</li>
+        <li>📊 <strong>Track Key Nutrients:</strong> Automatically calculate total <strong>protein</strong>, <strong>carbs</strong>, <strong>fat</strong>, and <strong>calories</strong> for each day.</li>
+        <li>📈 <strong>Visualize Your Progress:</strong> See your logged entries summarized by date.</li>
+        <li>🗓️ <strong>Plan Ahead:</strong> Use the calendar to add logs for future dates.</li>
+    </ul>
+
+    </div>
+    
+
+    <!-- <div class="row align-items-center"> -->
+        <!-- <div class="form-reservations-box"> -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                <br>
+    <br>
+        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+            <h2 class="block-title text-center">
+                🚀 How It Works</h2>
+        </div><br>
+
+    <ol style="font-size: 17px; line-height: 35px;">
+        <li>📅 Each day you visit this page, a log entry is created for you — just once per day.</li>
+        <li>🍽️ You can add custom food items anytime, linked to your selected date.</li>
+        <li>🔄 You can continue adding meals to already logged dates.</li>
+    </ol>
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <br>
+<br>
+<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+<h2 class="block-title text-center">
+    🧮 Nutrient Calculations</h2>
+</div><br>
+
+<p>
+    Each food entry includes:
+    <br>
+    <strong>⚡ Calories</strong> = (Protein × 4) + (Carbs × 4) + (Fat × 9)
+</p>
+<p>These values are added up and displayed as a daily summary.</p>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <br>
+<br>
+<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+<h2 class="block-title text-center">
+    💡 Tip</h2>
+</div><br>
+
+    <ul style="font-size: 17px; line-height: 35px;">
+        <li>⏰ Be consistent with logging.</li>
+        <li>⚖️ Use accurate portion sizes.</li>
+        <li>🥅 Balance your macros according to your goals (weight loss, muscle gain, etc.).</li>
+    </ul>
+</div> 
+</div>
+</div>
+</div>
+<br><br>
+<div id="menu" class="menu-main pad-top-100 pad-bottom-100" style="background-color: #f2f2f2;">    
+    <main class="container" >
+        <div class="add-container">
+            <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                <h2 class="block-title text-center">
+                    🥗 Personal Nutrient Tracker
+            </h2>
+                <p class="title-caption text-center">Savor the rich, diverse flavors of India’s finest cuisines.</p>
+            </div>
+            <h2 class="add-date" class="block-title text-center"> Add New Date </h2>
+            <form action="/tracker" method="POST">
+                <input type="date" name="date">
+                <button type="submit" class="btn" name="date-btn">Add</button>
+            </form>
+        </div>
+    
+    
+        <!-- <div class="sub-container">
+            {% for i in results %}
+            <div class="individual-sub-container">
+                <h3 class="date"> {{i.readable_date}}</h3>
+                <div class="totals">
+                    <ul class="totals-list">
+                        <li>Protein <span>{{i.protein}}</span></li>
+                        <li>Carbohydrates <span>{{i.carbs}}</span></li>
+                        <li>Fat <span>{{i.fat}}</span></li>
+                        <li>Calories <span>{{i.calories}}</span></li>
+                        <li><a href="{{url_for('view', date=i.entry_date)}}" class="view-details">View Details</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div> -->
+        <div class="sub-container">
+            {% for i in results %}
+            <div class="individual-sub-container">
+                <h3 class="date"> {{i.readable_date}}</h3>
+                <div class="totals">
+                    <ul class="totals-list">
+                        <li>Protein <span>{{i.protein}}</span></li>
+                        <li>Carbohydrates <span>{{i.carbs}}</span></li>
+                        <li>Fat <span>{{i.fat}}</span></li>
+                        <li>Calories <span>{{i.calories}}</span></li>
+                        <li><a href="{{url_for('view', date=i.entry_date)}}" class="view-details">View Details</a></li>
+                    </ul>
+                  
+                </div>
+            </div>  <br>
+            {% endfor %}
+        </div>
+       
+    </main>
+</div>
+
+
+
+{% include  "nutrienttracker/footer.html" %}
+
+{% endblock %}
