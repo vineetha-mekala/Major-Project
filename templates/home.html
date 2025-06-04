@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="./static/CSS/header.css"> -->
+    <link rel="stylesheet" href="../static/css/home.css">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+
+    <!-- color -->
+    <link id="changeable-colors" rel="stylesheet" href="static/css/colors/orange.css" />
+
+    <!-- Modernizer -->
+    <script src="static/js/modernizer.js"></script>
+    
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      #header{
+        background-color: #202020;
+      }
+      .partner-executives {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+        .partner {
+            display: inline;
+    width: 45%;
+    max-width: 250px;
+    height: 150px;
+    background-color: #e75b1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.partner-count {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.partner p {
+    text-align: center;
+    color: white;
+}
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="header" class="header-block-top">
+          <div class="container">
+              <div class="row">
+                  <div class="main-menu">
+                      <!-- navbar -->
+                      <nav class="navbar navbar-default" id="mainNav">
+                          <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                              <div class="logo">
+                                  <a class="navbar-brand js-scroll-trigger logo-header" href="#">
+                                      <img src="static/images/logo.png" alt="">
+                                  </a>
+                              </div>
+                          </div>
+                          <div id="navbar" class="navbar-collapse collapse">
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li class="active"><a href="{{url_for('home')}}">Home</a></li>
+                                  <li><a href="/#about">About us</a></li>
+                                  <li><a href="/#footer">Contact us</a></li>
+                                  
+                                <li class="has-child">
+                                    <a href="{{ url_for('login') }}" class='text-wrapper-2 header-button'>Login</a>
+                                </li>
+                                <li class="has-child">
+                                    <a href="{{ url_for('signup') }}" class='text-wrapper-2 header-button'>Signup</a>
+                                  
+                                </ul>
+                          </div>
+                          <!-- end nav-collapse -->
+                      </nav>
+                      <!-- end navbar -->
+                  </div>
+              </div>
+              <!-- end row -->
+          </div>
+          <!-- end container-fluid -->
+      </header>
+      <!-- end header -->
+  </div> 
+    <section class="Front">
+        <div class="Home-text" style="margin-top: 100px ;"  >
+            <h1 class="Home-heading block-title" style="font-size: 64px">Get your Food<br> Delivery at your<br> Doorstep</h1>
+            <p class="Home-para">Check the website and get our ice cream, snacks,<br>
+                drinks, pastries in 10 minutes.</p>
+            <img src="./static/Assets/Images/food-delivery-rider.png" class="Home-text-img"></img>
+            <a href="{{ url_for('signup') }}" class="home-get-started">Get Started</a> 
+        </div>
+        <div class="Home-image-div">
+            <img src="./static/Assets/Images/food-delivery-rider.png" class="home-image"></img>
+        </div>
+    </section>
+
+    <div id="about" class="about-main pad-top-100 pad-bottom-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <h2 class="block-title"> About Us </h2>
+                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
+                        <h3>Welcome to Food Funday! 🎉🍴</h3>
+                        <p style="color: black; font-weight:bolder;"> 
+
+                            At Food Funday, we believe every meal should be a celebration.
+                            Whether you’re craving a cheesy pizza, spicy biryani, or a sweet dessert, we bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.
+                            
+                            With our user-friendly interface, ordering from your go-to restaurants has never been smoother. Whether it's a quick bite from your local diner or a special treat from a renowned chain, we've got you covered. Our diverse selection of eateries ensures there's something to please every palate. And with our efficient delivery service, you can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                           
+                            
+                             </p>
+
+                        <p style="color: black; font-weight:bolder;">  
+                             And with our efficient delivery service, We’re passionate about making your food ordering experience simple, fun, and reliable. You can enjoy restaurant-quality meals in the comfort of your own home. So sit back, relax, and let us take care of your cravings. With our food delivery app, delicious meals are just a few taps away.
+                            With just a few clicks, you can explore new tastes, support local kitchens, and enjoy delicious moments every day. </p>
+
+                        <p style="color: black; font-weight:bolder;">Because every day is a Funday when great food is just a tap away! </p>
+
+                        
+                    </div>
+                    
+                </div>
+                <!-- end col -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
+                        <div class="about-images">
+                            <img class="about-main" src="static/images/about-main.jpg" alt="About Main Image">
+                            <img class="about-inset" src="static/images/about-inset.jpg" alt="About Inset Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- end col -->
+            </div>
+            <div class="partner-executives">
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Restaurant Partners</p>
+                </div>
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Happy Customers</p>
+                </div>
+                <div class="partner">
+                  <div class="partner-count">10+</div>
+                  <p>Delivery Executives</p>
+                </div>
+              </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    
+    <div id="footer" class="footer-main">
+    <div class="footer-box pad-top-70">
+        <div class="container">
+            <div class="row">
+                <div class="footer-in-main">
+                    <div class="footer-logo">
+                        <div class="text-center">
+                            <img src="static/images/logo.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-a">
+                            <h3>About Us</h3>
+                            <p>At Food Funday, we believe every meal should be a celebration.
+                                 We bring the best dishes from your favorite restaurants right to your doorstep — fresh, fast, and full of flavor.</p>
+                            <ul class="socials-box footer-socials pull-left">
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
+                                    </a>
+                                </li>
+                            </ul>
+      
+                        </div>
+                        <!-- end footer-box-a -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-b">
+                            <h3>Popular cuisines</h3>
+                            <ul>
+                                <li><a href="{{ url_for('login') }} "> Hyderabadi</a></li>
+                                <li><a href="{{ url_for('login') }} "> Kerala</a></li>
+                                <li><a href="{{ url_for('login') }} "> Maharahstrian</a></li>
+                                <li><a href="{{ url_for('login') }} "> Parsi</a></li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-b -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-c">
+                            <h3>Contact Us</h3>
+                            <p>
+                                <i class="fa fa-map-signs" aria-hidden="true"></i>
+                                <span>6 E, Gandhi Road, Bengaluru, India</span>
+                            </p>
+                            <p>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>
+                                +91 80005 89080 
+                            </span>
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span><a href="#">support@foodfunday.com</a></span>
+                            </p>
+                        </div>
+                        <!-- end footer-box-c -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="footer-box-d">
+                            <h3>Opening Hours</h3>
+      
+                            <ul>
+                                <li>
+                                    <p>Monday - Thursday </p>
+                                    <span> 11:00 AM - 9:00 PM</span>
+                                </li>
+                                <li>
+                                    <p>Friday - Saturday </p>
+                                    <span>  11:00 AM - 5:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end footer-box-d -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end footer-in-main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div id="copyright" class="copyright-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h6 class="copy-title"> Copyright &copy; 2025 Food Funday. All rights are received.  </h6>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end copyright-main -->
+      </div>
+      <!-- end footer-box -->
+      </div>
+      <!-- end footer-main -->
+      
+      <!-- <a href="#" class="scrollup" style="display: none;">Scroll</a> -->
+      
+      
+      <!-- ALL JS FILES -->
+      <script src="staitc/js/all.js"></script>
+      <script src="static/js/bootstrap.min.js"></script>
+      <!-- ALL PLUGINS -->
+      <script src="static/js/custom.js"></script>
+      <script src="static/js/all.js"></script>
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menuItems");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+        window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+      header.classList.add('fixed-menu');
+    } else {
+      header.classList.remove('fixed-menu');
+    }
+  });
+    </script>
+</body>
+<script src="loader.js"></script>
+</html>
